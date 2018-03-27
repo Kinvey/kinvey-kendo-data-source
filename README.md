@@ -135,12 +135,13 @@ The Kinvey dialect supports a selected subset of the Kendo UI DataSource [filter
 - `gt`
 - `lte`
 - `gte`
-- `startswith`
-- `endswith`
+- `startswith` (case-sensitive only)
+- `endswith` (case-sensitive only)
+- `contains` (case-sensitive only)
 
-In addition to the standard Kendo UI Data Source filtering operatiors, the Kinvey dialect adds support for the following Kinvey-specific operators:
+In addition to the standard Kendo UI Data Source filtering operators, the Kinvey dialect adds support for the following Kinvey-specific operators:
 
-- `isin`&mdash;value is an array of possible matches. Example: `{ field: 'author', operator: 'isin', value: ["Author1", "Author2", "Author3"] }`
+- `isin`&mdash;value is an array of possible matches.
 - `isnotin`&mdash;an inversion of the `isin` logic returning all matches that are not in the specified array, including those entities that *do not* contain the specified field.
 
 ```javascript
@@ -186,7 +187,6 @@ var dataSourceOptions = {
 The following configuration options of the `DataSource` component are not supported for server execution by Kinvey.
 
 - Standard Kendo UI DataSource filter operators for server filtering:
-   - `contains`
    - `doesnotcontain`
    - `isempty`
    - `isnotempty`

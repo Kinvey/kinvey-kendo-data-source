@@ -266,9 +266,16 @@
                                 "$regex": "^" + currentKendoFilterValue
                             };
                             break;
+                        case "contains":  
+                            currentKinveyFilter[currentKendoFilterFieldName] = {
+                                "$regex": "^.*?" + currentKendoFilterValue,
+                                "$options": "m"
+                            };
+                            break;
                         case "endswith":
                             currentKinveyFilter[currentKendoFilterFieldName] = {
-                                "$regex": currentKendoFilterValue + "$"
+                                "$regex": "^.*?" + currentKendoFilterValue + "$",
+                                "$options": "m"
                             };
                             break;
                         case "isin":
